@@ -36,7 +36,7 @@ export class ClientesListaComponent implements OnInit {
     this.clienteSelecionado = cliente;
   }  
   
-  deletarCliente(cliente : Cliente) {
+  deletarCliente() {
     this.service
     .deletarCliente(this.clienteSelecionado)
     .subscribe( 

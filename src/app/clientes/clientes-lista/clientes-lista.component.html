@@ -46,10 +46,10 @@
                         <td>
                             <button class="btn btn-primary" 
                                     routerLink="/clientes-form/{{ cliente.id }}">
-                                <i class="fa fa-pen-square"></i>
+                                <i class="fa fa-edit"></i>
                             </button>
 
-                            <button class="btn btn-danger" (click)="preparaDelecao(cliente)" 
+                            <button class="btn btn-danger ml-3" (click)="preparaDelecao(cliente)" 
                             data-toggle="modal" data-target="#modalDelecao"> 
                                 <i class="fa fa-trash"></i>
                             </button>
@@ -70,7 +70,6 @@
                 <div class="modal-body" *ngIf="clienteSelecionado">
                   Confirma que o cliente:  {{ clienteSelecionado.nome }} seja deletado ?
                 </div>
-
                 <div class="modal-footer">
                     <button class="btn btn-success" (click)="deletarCliente()" data-dismiss="modal">Confirma</button>
                     <button class="btn btn-default" data-dismiss="modal">Cancela</button>
