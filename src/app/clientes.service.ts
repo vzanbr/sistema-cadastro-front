@@ -13,9 +13,17 @@ export class ClientesService {
 
    salvar (cliente: Cliente) : Observable<Cliente> {
       return this.http.post<Cliente>('http://localhost:1000/salvar/cliente', cliente);
+   }   
+   
+   atualizar (cliente: Cliente) : Observable<any> {
+      return this.http.put<Cliente>(`http://localhost:1000/atualizar/${cliente.id}`, cliente);
    }
 
    getClientes() : Observable<Cliente[]> {
       return this.http.get<Cliente[]>('http://localhost:1000/clientes');
+   }
+
+   getClienteById(id: number) : Observable<Cliente> {
+      return this.http.get<any>(`http://localhost:1000/cliente/${id}`);
    }
 }
