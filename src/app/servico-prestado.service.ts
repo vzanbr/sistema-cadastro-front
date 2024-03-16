@@ -11,7 +11,9 @@ import { ServicoPrestadoListaBusca } from './servico-prestado/servico-prestado-l
 })
 export class ServicoPrestadoService {
 
-  apiURL: string = environment.apiServPresURL;
+  apiServURL: string = environment.apiServPresURL;
+
+  apiURL: string = environment.apiURL;
 
   constructor(private http: HttpClient) { }
 
@@ -22,9 +24,9 @@ export class ServicoPrestadoService {
   buscar(nome: string, mes: number) : Observable<ServicoPrestadoListaBusca[]>{
     const httpParams = new HttpParams()
       .set("nome", nome)
-      .set("mes", mes.toString()) ;
+      .set("mes", mes ? mes.toString() : '' ) ;
 
-    const url = this.apiURL + "?" + httpParams.toString();
+    const url = this.apiServURL + "?" + httpParams.toString();
     console.log(url);
     return this.http.get<any>(url);
   }
