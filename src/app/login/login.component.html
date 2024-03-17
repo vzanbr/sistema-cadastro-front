@@ -1,3 +1,4 @@
+<div class="bg-primary" >
 <div id="layoutAuthentication">
     <div id="layoutAutentication_content">
         <main>
@@ -6,13 +7,17 @@
                     <div class="col-lg-5">
                         <div class="card shadow-lg border-0 rounded-lg mt-5">
                             <div class="card-header">
-                                <h3 class="text-center font-wight-light my-4">
+                                <h3 class="text-center font-weight-light my-4">
                                         {{ cadastrando ? 'Cadastro de Novo Usuario' : 'Entrar' }}
                                 </h3>
                             </div>
                             <div class="card-body">
-                                <div class="alert alert-danger" *ngIf="loginError">
-                                    Login e/ou Senha incorreto(a).
+                                <div class="alert alert-success" *ngIf="msgSucesso">
+                                    {{ msgSucesso }}
+                                </div>                
+                                
+                                <div class="alert alert-danger" *ngFor="let erro of errors">
+                                    {{ erro }}
                                 </div>
                                 <form #loginForm="ngForm" (submit)="onSubmit();">
                                     <div class="form-group">
@@ -35,7 +40,8 @@
                                             Acessar 
                                         </button>     
 
-                                        <button type="button" class="btn btn-success" *ngIf="cadastrando"> 
+                                        <button type="button" class="btn btn-success" 
+                                             (click)="cadastrar()" *ngIf="cadastrando"> 
                                            Cadastrar 
                                         </button>            
                                         
@@ -60,4 +66,5 @@
             </div>
         </main>
     </div>
+</div>
 </div>
