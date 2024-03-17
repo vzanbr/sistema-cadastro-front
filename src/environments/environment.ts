@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiURL: 'http://localhost:1000',
-  apiServPresURL: 'http://localhost:1000/servico'
+  apiServPresURL: 'http://localhost:1000/servico',
+  loginUrlCriar: 'http://localhost:1000/salvar/usuario',
 };
 
 /*
