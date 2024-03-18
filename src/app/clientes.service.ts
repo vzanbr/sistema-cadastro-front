@@ -11,19 +11,21 @@ import { environment } from 'src/environments/environment';
 export class ClientesService {
 
    apiURL: string = environment.apiURL;
+   apiClURL: string = environment.apiClURL;
+   apiClientURL: string = environment.apiClienteURL;
 
   constructor( private http: HttpClient ) {}
 
    salvar (cliente: Cliente) : Observable<Cliente> {
-      return this.http.post<Cliente>(`${this.apiURL}/salvar/cliente`, cliente);
+      return this.http.post<Cliente>(`${this.apiClientURL}`, cliente);
    }   
    
    atualizar (cliente: Cliente) : Observable<any> {
-      return this.http.put<Cliente>(`${this.apiURL}/atualizar/${cliente.id}`, cliente);
+      return this.http.put<Cliente>(`${this.apiURL}/cliente/atualizar/${cliente.id}`, cliente);
    }
 
    getClientes() : Observable<Cliente[]> {
-      return this.http.get<Cliente[]>(`${this.apiURL}/clientes`);
+      return this.http.get<Cliente[]>(`${this.apiClURL}`);
    }
 
    getClienteById(id: number) : Observable<Cliente> {
@@ -31,6 +33,6 @@ export class ClientesService {
    }   
    
    deletarCliente(cliente: Cliente) : Observable<any> {
-      return this.http.delete<any>(`${this.apiURL}/deletar/${cliente.id}`);
+      return this.http.delete<any>(`${this.apiURL}/cliente/deletar/${cliente.id}`);
    }
 }
